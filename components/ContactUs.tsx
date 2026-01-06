@@ -32,9 +32,11 @@ export default function ContactUs() {
 
           {/* RIGHT */}
           <div className="flex md:justify-end mt-8 md:mt-0 sm:px-48">
-            <button className="text-2xl tracking-wide text-white hover:opacity-80 cursor-pointer hover:bg-white hover:text-black px-8 py-2 rounded-full transition duration-700">
-              Contact Us
-            </button>
+            <a href="https://wa.me/6281289194782?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik.">
+              <button className="text-2xl tracking-wide text-white hover:opacity-80 cursor-pointer hover:bg-white hover:text-black px-8 py-2 rounded-full transition duration-700">
+                Contact Us
+              </button>
+            </a>
           </div>
         </div>
       </div>

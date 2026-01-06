@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden" id="landing">
       {/* Video background */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -25,7 +25,7 @@ export default function Hero() {
         </h1>
 
         <button className="mt-8 rounded-full border border-white px-16 py-3 font-montserrat text-white transition duration-700 cursor-pointer hover:bg-white hover:text-black">
-          Learn More
+          <a href="/portofolio">Learn More</a>
         </button>
       </div>
     </section>

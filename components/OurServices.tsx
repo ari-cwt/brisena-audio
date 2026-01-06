@@ -2,7 +2,7 @@ import ServiceButton from "./ServiceButton";
 
 export default function OurServices() {
   return (
-    <section className="h-screen w-full bg-black text-white">
+    <section className="h-screen w-full bg-black text-white" id="services">
       <div className="h-full flex flex-col">
         {/* TOP (title area) */}
         <div className="flex items-center px-4 sm:px-8 lg:px-32 pt-20 sm:pt-24 lg:pt-32 pb-6 sm:pb-8">
@@ -32,27 +32,27 @@ export default function OurServices() {
               <div className="w-full max-w-3xl">
                 {/* MOBILE */}
                 <div className="flex flex-col gap-4 sm:hidden">
-                  <ServiceButton label="Recording" />
-                  <ServiceButton label="Mixing" />
-                  <ServiceButton label="Sound Design" />
-                  <ServiceButton label="Mastering" />
-                  <ServiceButton label="Post Production" />
+                  <ServiceButton label="Mixing & Mastering" href="/pricing" />
+                  <ServiceButton label="Recording" href="/pricing" />
+                  <ServiceButton label="Audio Consultant" href="/pricing" />
+                  <ServiceButton label="Music Production" href="/pricing" />
+                  <ServiceButton label="Audio for Content" href="/pricing" />
                 </div>
 
                 {/* DESKTOP */}
                 <div className="hidden sm:flex flex-col gap-6">
                   <div className="flex justify-between gap-4">
+                    <ServiceButton label="Mixing & Mastering" href="/pricing" />
                     <ServiceButton label="Recording" />
-                    <ServiceButton label="Mixing" />
                   </div>
 
                   <div className="flex justify-center">
-                    <ServiceButton label="Sound Design" />
+                    <ServiceButton label="Audio Consultant" href="/pricing" />
                   </div>
 
                   <div className="flex justify-between gap-4">
-                    <ServiceButton label="Mastering" />
-                    <ServiceButton label="Post Production" />
+                    <ServiceButton label="Music Production" href="/pricing" />
+                    <ServiceButton label="Audio for Content" href="/pricing" />
                   </div>
                 </div>
               </div>

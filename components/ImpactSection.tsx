@@ -1,6 +1,6 @@
 export default function ImpactSection() {
   return (
-    <section className="h-screen w-full bg-black text-white">
+    <section className="h-screen w-full bg-black text-white" id="impact">
       {/* Full-height container */}
       <div className="h-full flex flex-col">
         {/* TOP HALF */}
@@ -15,10 +15,10 @@ export default function ImpactSection() {
 
             {/* Right paragraph */}
             <p className="text-base sm:text-lg leading-relaxed text-white/80">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Created by a musician for musicians and creators, BIRSENA AUDIO
+              blends technical accuracy with musical feel. Every project is
+              crafted with intention — where ideas, emotion, and sound come
+              together.
             </p>
           </div>
         </div>
