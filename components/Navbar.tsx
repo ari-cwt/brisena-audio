@@ -66,7 +66,7 @@ export default function Navbar() {
           {/* BURGER (mobile) */}
           <button
             onClick={() => setOpen(!open)}
-            className="ml-auto md:hidden flex flex-col gap-1"
+            className="ml-auto md:hidden flex flex-col gap-1 cursor-pointer"
             aria-label="Toggle menu"
           >
             <span className="h-px w-6 bg-white" />
@@ -96,11 +96,20 @@ export default function Navbar() {
           <a href="/portofolio" className="text-sm hover:opacity-80 transition">
             Portfolio
           </a>
-          <a href="" className="text-sm hover:opacity-80 transition">
+          <a href="/#services" className="text-sm hover:opacity-80 transition">
             Services
           </a>
-          <a href="" className="text-sm hover:opacity-80 transition">
+          <a
+            href="https://wa.me/6281289194782?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik."
+            className="text-sm hover:opacity-80 transition"
+          >
             Contact Us
+          </a>
+          <a
+            href="/pricing"
+            className="text-sm text-white/80 hover:text-white transition"
+          >
+            Pricing
           </a>
         </nav>
       </div>

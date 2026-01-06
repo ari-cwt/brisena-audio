@@ -143,7 +143,7 @@ export default function PortfolioPage() {
             <div className="flex gap-4 justify-center">
               <button
                 onClick={() => setSelectedVideo(null)}
-                className="px-5 py-2 rounded-full bg-neutral-700 hover:bg-neutral-600 transition"
+                className="px-5 py-2 rounded-full bg-neutral-700 hover:bg-neutral-600 transition cursor-pointer"
               >
                 No
               </button>
@@ -151,7 +151,7 @@ export default function PortfolioPage() {
                 href={`https://www.youtube.com/watch?v=${selectedVideo.youtubeId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2 rounded-full bg-white text-black font-medium hover:bg-neutral-200 transition"
+                className="px-5 py-2 rounded-full bg-white text-black font-medium hover:bg-neutral-200 transition cursor-pointer"
               >
                 Yes
               </a>
