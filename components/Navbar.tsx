@@ -15,22 +15,22 @@ export default function Navbar() {
           {/* LEFT LINKS (desktop) */}
           <nav className="hidden md:flex flex-1 gap-6">
             <a
-              href="/#impact"
+              href="/"
               className="text-sm text-white/80 hover:text-white transition"
             >
-              About Us
-            </a>
-            <a
-              href="/portofolio"
-              className="text-sm text-white/80 hover:text-white transition"
-            >
-              Portfolio
+              Home
             </a>
             <a
               href="/pricing"
               className="text-sm text-white/80 hover:text-white transition"
             >
-              Pricing
+              Layanan Kami
+            </a>
+            <a
+              href="/portofolio"
+              className="text-sm text-white/80 hover:text-white transition"
+            >
+              Portofolio
             </a>
           </nav>
 
@@ -50,16 +50,10 @@ export default function Navbar() {
           {/* RIGHT LINKS (desktop) */}
           <nav className="hidden md:flex flex-1 justify-end gap-6">
             <a
-              href="/#services"
-              className="text-sm text-white/80 hover:text-white transition"
-            >
-              Services
-            </a>
-            <a
               href="https://wa.me/6281289194782?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik."
               className="text-sm text-white/80 hover:text-white transition"
             >
-              Contact Us
+              Hubungi Kami
             </a>
           </nav>
 
@@ -90,26 +84,20 @@ export default function Navbar() {
         `}
       >
         <nav className="flex flex-col px-6 py-6 gap-4 text-white">
-          <a href="/#impact" className="text-sm hover:opacity-80 transition">
+          <a href="/" className="text-sm hover:opacity-80 transition">
             About Us
           </a>
           <a href="/portofolio" className="text-sm hover:opacity-80 transition">
-            Portfolio
+            Portofolio
           </a>
           <a href="/#services" className="text-sm hover:opacity-80 transition">
-            Services
+            Layanan Kami
           </a>
           <a
             href="https://wa.me/6281289194782?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik."
             className="text-sm hover:opacity-80 transition"
           >
-            Contact Us
-          </a>
-          <a
-            href="/pricing"
-            className="text-sm text-white/80 hover:text-white transition"
-          >
-            Pricing
+            Hubungi Kami
           </a>
         </nav>
       </div>

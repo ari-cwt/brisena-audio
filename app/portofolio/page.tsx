@@ -58,7 +58,7 @@ export default function PortfolioPage() {
     <main className="min-h-screen bg-black text-white px-6 sm:px-12 lg:px-24 pt-32 pb-20">
       {/* TITLE */}
       <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-12">
-        PORTOFOLIO
+        OUR PROJECTS
       </h1>
 
       {/* GRID */}

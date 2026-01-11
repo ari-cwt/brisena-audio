@@ -24,9 +24,14 @@ export default function Hero() {
           PRECISION
         </h1>
 
-        <button className="mt-8 rounded-full border border-white px-16 py-3 font-montserrat text-white transition duration-700 cursor-pointer hover:bg-white hover:text-black">
-          <a href="/portofolio">Learn More</a>
-        </button>
+        <div className="flex gap-4 lg:gap-8">
+          <button className="mt-8 rounded-full border border-white px-12 md:px-16 py-2 md:py-3 font-montserrat text-white transition duration-700 cursor-pointer hover:bg-white hover:text-black">
+            <a href="/portofolio">Portofolio</a>
+          </button>
+          <button className="mt-8 rounded-full border border-white px-12 md:px-16 py-2 md:py-3   font-montserrat text-white transition duration-700 cursor-pointer hover:bg-white hover:text-black">
+            <a href="/portofolio">Layanan Kami</a>
+          </button>
+        </div>
       </div>
     </section>
   );

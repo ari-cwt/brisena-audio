@@ -36,7 +36,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-white/70">
               <li>
-                <a href="#" className="hover:text-white transition">
+                <a
+                  href="https://www.instagram.com/brisena.production"
+                  className="hover:text-white transition"
+                >
                   Instagram
                 </a>
               </li>

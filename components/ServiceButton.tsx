@@ -14,7 +14,8 @@ export default function ServiceButton({
         inline-flex
         items-center
         justify-center
-        px-16 py-8
+        px-12 py-4
+        sm:px-16 sm:py-8
         rounded-full
         bg-white/30
         backdrop-blur-sm

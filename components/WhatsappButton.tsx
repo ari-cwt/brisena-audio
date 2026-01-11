@@ -28,7 +28,7 @@ export const WhatsAppButton = () => {
         <FaWhatsapp className="w-[65%] h-[65%]" />
       </div>
 
-      <span className="text-[13px] md:text-lg font-semibold">Contact Us</span>
+      <span className="text-[13px] md:text-lg font-semibold">Hubungi Kami</span>
     </Link>
   );
 };

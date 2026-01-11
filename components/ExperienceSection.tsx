@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 export default function ProvenExperienceSection() {
   return (
-    <section className="min-h-screen bg-black w-full flex items-center justify-center px-4 sm:px-8 lg:px-32">
+    <section className="min-h-screen bg-black w-full flex items-center justify-center px-8 sm:px-8 lg:px-32">
       {/* Video wrapper */}
       <div className="relative w-full h-[85vh] sm:h-[70vh] lg:h-[70vh] rounded-xl overflow-hidden">
         {/* Video */}
@@ -22,21 +24,24 @@ export default function ProvenExperienceSection() {
           {/* Top content */}
           <div className="max-w-xl">
             <h2 className="text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase mb-6 sm:mb-10 lg:mb-14">
-              Proven Experience
+              TIM BERPENGALAMAN
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed text-white/90">
-              More than 15 years of working with sound and collaborating with
-              diverse clients have shaped our approach: precise, musical, and
-              always focused on the creator’s vision.
+              Dengan pengalaman lebih dari 15 tahun di bidang audio dan musik,
+              tim kami memahami proses produksi musik secara menyeluruh dan
+              menangani setiap pekerjaan dengan fokus pada kualitas dan
+              kebutuhan klien.
             </p>
           </div>
 
           {/* Bottom button */}
           <div className="pt-6 sm:pt-0">
-            <button className="inline-flex items-center justify-center rounded-full border border-white px-8 py-3 text-sm font-medium transition hover:bg-white hover:text-black">
-              Book a Space
-            </button>
+            <Link href="/portofolio">
+              <button className="inline-flex items-center justify-center rounded-full border border-white px-8 py-3 text-sm font-medium transition hover:bg-white hover:text-black">
+                Lihat Portofolio
+              </button>
+            </Link>
           </div>
         </div>
       </div>

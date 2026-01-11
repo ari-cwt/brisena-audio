@@ -8,17 +8,16 @@ export default function ImpactSection() {
           <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-12 pt-20 sm:pt-12 px-8 sm:px-16 lg:px-32">
             {/* Left title */}
             <h2 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight">
-              AUDIO CRAFTED
+              PRODUKSI MUSIK
               <br />
-              FOR IMPACT
+              PROFESIONAL
             </h2>
 
             {/* Right paragraph */}
             <p className="text-base sm:text-lg leading-relaxed text-white/80">
-              Created by a musician for musicians and creators, BIRSENA AUDIO
-              blends technical accuracy with musical feel. Every project is
-              crafted with intention — where ideas, emotion, and sound come
-              together.
+              Sebagai musisi, kami tahu bahwa musik bukan sekadar teknis. Dari
+              ide awal sampai hasil akhir, setiap karya musik dikerjakan dengan
+              fokus pada rasa dan kualitas.
             </p>
           </div>
         </div>
@@ -26,7 +25,7 @@ export default function ImpactSection() {
         {/* BOTTOM HALF */}
         <div className="flex-[1.5] flex items-center justify-center">
           {/* Padding wrapper (does NOT affect section height) */}
-          <div className="w-full h-full px-8 sm:px-16 lg:px-32 py-16">
+          <div className="w-full h-full px-8 md:px-8 sm:px-16 lg:px-32 py-16">
             {/* Video container */}
             <div className="relative w-full h-full overflow-hidden rounded-xl">
               {/* Video */}
