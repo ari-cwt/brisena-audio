@@ -4,6 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+function scrollToLanding() {
+  const el = document.getElementById("landing");
+  el?.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -21,13 +26,13 @@ export default function Navbar() {
               Home
             </a>
             <a
-              href="/pricing"
+              href="/#services"
               className="text-sm text-white/80 hover:text-white transition"
             >
               Layanan Kami
             </a>
             <a
-              href="/portofolio"
+              href="/#portofolio"
               className="text-sm text-white/80 hover:text-white transition"
             >
               Portofolio
@@ -36,12 +41,22 @@ export default function Navbar() {
 
           {/* CENTER LOGO */}
           <div className="absolute left-1/2 -translate-x-1/2">
-            <Link href="/#landing" className="block">
+            <Link
+              href="/"
+              onClick={(e) => {
+                // If already on homepage, prevent navigation
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  scrollToLanding();
+                }
+              }}
+              className="block cursor-pointer"
+            >
               <Image
-                src="/logo.png" // put your logo in /public
+                src="/logo.png"
                 alt="Brisena Audio Production"
-                width={60} // adjust as needed
-                height={24} // adjust as needed
+                width={60}
+                height={24}
                 priority
               />
             </Link>
@@ -60,7 +75,7 @@ export default function Navbar() {
           {/* BURGER (mobile) */}
           <button
             onClick={() => setOpen(!open)}
-            className="ml-auto md:hidden flex flex-col gap-1 cursor-pointer"
+            className="ml-auto h-10 items-center justify-center md:hidden flex flex-col gap-1.5 cursor-pointer"
             aria-label="Toggle menu"
           >
             <span className="h-px w-6 bg-white" />
@@ -84,10 +99,10 @@ export default function Navbar() {
         `}
       >
         <nav className="flex flex-col px-6 py-6 gap-4 text-white">
-          <a href="/" className="text-sm hover:opacity-80 transition">
-            About Us
-          </a>
-          <a href="/portofolio" className="text-sm hover:opacity-80 transition">
+          <a
+            href="/#portofolio"
+            className="text-sm hover:opacity-80 transition"
+          >
             Portofolio
           </a>
           <a href="/#services" className="text-sm hover:opacity-80 transition">

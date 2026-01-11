@@ -62,7 +62,10 @@ export default function PortfolioSection({
   }
 
   return (
-    <section className="relative min-h-screen text-white px-6 sm:px-12 lg:px-24 pt-32">
+    <section
+      className="relative min-h-screen text-white px-6 sm:px-12 lg:px-24 pt-32"
+      id="portofolio"
+    >
       {/* TITLE */}
       {showTitle && (
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-12">
