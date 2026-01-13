@@ -6,11 +6,6 @@ export default function MixingContent() {
         <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
           Mixing &amp; Mastering
         </h2>
-
-        <span className="inline-block rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-black">
-          mulai dari
-        </span>
-
         <p className="text-xl md:text-2xl font-medium">Rp. 1.500.000</p>
       </div>
 

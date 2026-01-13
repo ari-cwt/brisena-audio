@@ -23,9 +23,12 @@ export default function Footer() {
               CONTACT
             </h4>
             <ul className="space-y-2 text-sm text-white/70">
-              <li>Address: Street Name, City, Country</li>
-              <li>Phone: +00 0000 0000</li>
-              <li>Email: hello@yourstudio.com</li>
+              <li>
+                Address: Puri Harvest South Jakarta Blok A no 9, Jakarta
+                Selatan, Jakarta Raya, 12630, Indonesia
+              </li>
+              <li>Phone: +62 812-8919-4782</li>
+              <li>Email: info@brisenaproduction.com</li>
             </ul>
           </div>
 

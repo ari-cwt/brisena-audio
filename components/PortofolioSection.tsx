@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 type PortfolioItem = {
@@ -25,17 +26,46 @@ const portfolioItems: PortfolioItem[] = [
     youtubeId: "0eJwyKg7uFk",
   },
   { title: "KERETA API - Cover by THE CRP", youtubeId: "j4i4NYWXXCE" },
-  { title: "Post Production – Film Audio", youtubeId: "IEyOYYoVrSc" },
-  { title: "Mastering Demo – Pop Song", youtubeId: "SiHQU6OXVYA" },
-  { title: "Electronic Music Session", youtubeId: "wWAdBZGJX5g" },
-  { title: "Acoustic Recording Setup", youtubeId: "Jp_yhIptkC4" },
-  { title: "Acoustic Recording Setup", youtubeId: "bKtOqzI6PnA" },
-  { title: "Acoustic Recording Setup", youtubeId: "lXGiTXNT8BA" },
-  { title: "Acoustic Recording Setup", youtubeId: "Be74FPJvwS8" },
-  { title: "Acoustic Recording Setup", youtubeId: "sBA64CXaFRA" },
-  { title: "Acoustic Recording Setup", youtubeId: "rCNC-fxY0oE" },
-  { title: "Acoustic Recording Setup", youtubeId: "H0lerHJKS0o" },
-  { title: "Acoustic Recording Setup", youtubeId: "tx_kewGOhZc" },
+  { title: "DANSA YO DANSA", youtubeId: "IEyOYYoVrSc" },
+  {
+    title:
+      "My All in All - Song written by Dennis Jerrigen - Worship by Jelita Tobing",
+    youtubeId: "SiHQU6OXVYA",
+  },
+  {
+    title:
+      "Sigulempong Cover By Dalle Feat Putri Imelda Aritonang Ciptaan : Tilhang Gultom",
+    youtubeId: "wWAdBZGJX5g",
+  },
+  {
+    title: "Jennifer Hutapea - Star Spangled Banner",
+    youtubeId: "Jp_yhIptkC4",
+  },
+  {
+    title:
+      "God Bless America X This Land is Your Land medley - Jennifer Hutapea",
+    youtubeId: "bKtOqzI6PnA",
+  },
+  {
+    title:
+      "I GIVE YOU MY HEART (Cover) by Jennifer Hutapea // Original by Grace Vineyard Kids",
+    youtubeId: "lXGiTXNT8BA",
+  },
+  {
+    title:
+      "The Moon Represent My Heart (月亮代表我的心). Cover by Jennifer H. Happy Lunar Year 2021! Year of the OX!",
+    youtubeId: "Be74FPJvwS8",
+  },
+  { title: "EVERYTHING I LOVE", youtubeId: "sBA64CXaFRA" },
+  {
+    title: "O Holy Night | Trio | Jennifer, Olivia, Cayleb Hutapea",
+    youtubeId: "rCNC-fxY0oE",
+  },
+  {
+    title: "Holan Ho Ito - Jeffry Tobing (Video Music Official)",
+    youtubeId: "H0lerHJKS0o",
+  },
+  { title: "Tuhan Yang Setia - Jeffry Tobing", youtubeId: "tx_kewGOhZc" },
 ];
 
 interface PortfolioSectionProps {
@@ -74,7 +104,7 @@ export default function PortfolioSection({
       )}
 
       {/* GRID WRAPPER (reserves space) */}
-      <div className="relative min-h-520 lg:min-h-195">
+      <div className="relative min-h-475 md:min-h-105">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentItems.map((item) => (
             <button
@@ -162,6 +192,14 @@ export default function PortfolioSection({
           >
             <ArrowRight />
           </button>
+        </div>
+        <div className="pt-5 text-center sm:hidden">
+          <Link
+            href="/portofolio"
+            className="px-8 py-2 rounded-full border border-white"
+          >
+            Lihat Semua
+          </Link>
         </div>
       </div>
 

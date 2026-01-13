@@ -99,6 +99,9 @@ export default function Navbar() {
         `}
       >
         <nav className="flex flex-col px-6 py-6 gap-4 text-white">
+          <a href="/" className="text-sm hover:opacity-80 transition">
+            Home
+          </a>
           <a
             href="/#portofolio"
             className="text-sm hover:opacity-80 transition"
