@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa6";
 
 export const WhatsAppButton = () => {
   const whatsappUrl =
-    "https://wa.me/6281289194782?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik.";
+    "https://wa.me/6285121368452?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik.";
 
   return (
     <Link

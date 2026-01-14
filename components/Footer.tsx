@@ -27,7 +27,7 @@ export default function Footer() {
                 Address: Puri Harvest South Jakarta Blok A no 9, Jakarta
                 Selatan, Jakarta Raya, 12630, Indonesia
               </li>
-              <li>Phone: +62 812-8919-4782</li>
+              <li>Phone: +62 851-2136-8452</li>
               <li>Email: info@brisenaproduction.com</li>
             </ul>
           </div>

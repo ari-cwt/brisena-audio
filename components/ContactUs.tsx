@@ -32,7 +32,7 @@ export default function ContactUs() {
 
           {/* RIGHT */}
           <div className="flex md:justify-end mt-8 md:mt-0 sm:px-48">
-            <a href="https://wa.me/6281289194782?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik.">
+            <a href="https://wa.me/6285121368452?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik.">
               <button className="text-2xl tracking-wide text-black hover:opacity-80 cursor-pointer bg-white px-8 py-2 sm:bg-white/0 sm:text-white  sm:hover:bg-white sm:hover:text-black sm:px-8 sm:py-2 rounded-full transition duration-700">
                 Contact Us
               </button>
