@@ -10,7 +10,7 @@ export default function JingleContent() {
         <span className="inline-block rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-black">
           mulai dari
         </span>
-        <p className="text-xl md:text-2xl font-medium">Rp. 2.500.000</p>
+        <p className="text-xl md:text-2xl font-medium">Rp. 1.500.000</p>
       </div>
 
       {/* DESCRIPTION */}

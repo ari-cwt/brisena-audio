@@ -11,7 +11,7 @@ export default function MinusOneContent() {
           mulai dari
         </span>
 
-        <p className="text-xl md:text-2xl font-medium">Rp. 700.000</p>
+        <p className="text-xl md:text-2xl font-medium">Rp. 250.000</p>
       </div>
 
       {/* DESCRIPTION */}

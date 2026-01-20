@@ -7,12 +7,23 @@ export const WhatsAppButton = () => {
   const whatsappUrl =
     "https://wa.me/6285121368452?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik.";
 
+  const handleClick = () => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: "AW-17808056052/1XzKCLi869UbEPS9xatC",
+        value: 1.0,
+        currency: "IDR",
+      });
+    }
+  };
+
   return (
     <Link
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contact us via WhatsApp"
+      onClick={handleClick}
       className="group fixed bottom-6 right-6 z-50
         flex items-center bg-green-500 hover:bg-green-600 text-white
         rounded-full shadow-lg transition-colors
@@ -28,7 +39,9 @@ export const WhatsAppButton = () => {
         <FaWhatsapp className="w-[65%] h-[65%]" />
       </div>
 
-      <span className="text-[13px] md:text-lg font-semibold">Hubungi Kami</span>
+      <span className="text-[13px] md:text-lg font-semibold">
+        Hubungi Kami
+      </span>
     </Link>
   );
 };

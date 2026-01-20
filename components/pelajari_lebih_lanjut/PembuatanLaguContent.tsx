@@ -11,7 +11,7 @@ export default function PembuatanLaguContent() {
           mulai dari
         </span>
 
-        <p className="text-xl md:text-2xl font-medium">Rp. 3.500.000</p>
+        <p className="text-xl md:text-2xl font-medium">Rp. 2.500.000</p>
       </div>
 
       {/* DESCRIPTION */}
