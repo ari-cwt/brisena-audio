@@ -38,7 +38,7 @@ export default function ServiceCard({
       </div>
 
       {/* IMAGE */}
-      <div className="relative h-48 w-full overflow-hidden">
+      <div className="relative h-48 w-full overflow-hidden mt-6">
         <img
           src={image}
           alt={title}

@@ -26,7 +26,7 @@ const services: Service[] = [
     title: "Pembuatan Lagu",
     description:
       "Pembuatan lagu dari awal, mulai dari konsep, aransemen, hingga produksi musik secara menyeluruh.",
-    price: 3500000,
+    price: 2500000,
     image: "/images/services/song.jpg",
     showBadge: true,
     modalContent: <PembuatanLaguContent />,
@@ -36,7 +36,7 @@ const services: Service[] = [
     title: " Jingle & Commercial Music",
     description:
       "Pembuatan musik singkat yang mudah diingat untuk kebutuhan brand, iklan, dan konten promosi.",
-    price: 2500000,
+    price: 1500000,
     image: "/images/services/jingle.jpg",
     modalContent: <JingleContent />,
   },
@@ -64,7 +64,7 @@ const services: Service[] = [
     title: "Pembuatan Minus One / Backing Track",
     description:
       "Musik tanpa vokal atau instrumen tertentu untuk latihan, performance, karaoke, backing track band dan ibadah.",
-    price: 700000,
+    price: 250000,
     image: "/images/services/minus.jpg",
     showBadge: true,
     modalContent: <MinusOneContent />,
@@ -90,7 +90,7 @@ export default function OurServices() {
         {/* TITLE */}
         <div className="px-4 sm:px-8 lg:px-32 pt-20 sm:pt-24 lg:pt-32 pb-10">
           <h2 className="text-3xl sm:text-5xl lg:text-6xl tracking-tight">
-            OUR SERVICES
+            LAYANAN KAMI
           </h2>
         </div>
 
