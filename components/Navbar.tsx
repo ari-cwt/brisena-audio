@@ -18,13 +18,13 @@ export default function Navbar() {
       <div className="h-16 w-full bg-black/40 backdrop-blur-md py-4">
         <div className="relative mx-auto h-full max-w-7xl px-6 flex items-center">
           {/* LEFT LINKS (desktop) */}
-          <nav className="hidden md:flex flex-1 gap-6">
-            <a
+          <nav className="hidden md:flex flex-1 gap-6 items-center">
+            <Link
               href="/"
               className="text-sm text-white/80 hover:text-white transition"
             >
               Home
-            </a>
+            </Link>
             <a
               href="/#services"
               className="text-sm text-white/80 hover:text-white transition"
@@ -37,6 +37,19 @@ export default function Navbar() {
             >
               Portofolio
             </a>
+
+            {/* NEW SOUND SYSTEM LINK */}
+            <Link
+              href="/sound-system"
+              className="group flex items-center gap-1.5 text-sm font-semibold transition-all hover:-translate-y-0.5"
+            >
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 via-pink-400 to-purple-500 group-hover:opacity-80 transition">
+                Sewa Sound System
+              </span>
+              <span className="bg-linear-to-r from-orange-500 to-pink-500 text-white text-[9px] px-1.5 py-0.5 rounded-full leading-none font-bold uppercase tracking-wider shadow-[0_0_10px_rgba(236,72,153,0.5)]">
+                New
+              </span>
+            </Link>
           </nav>
 
           {/* CENTER LOGO */}
@@ -95,25 +108,50 @@ export default function Navbar() {
           transition-all
           duration-300
           ease-out
-          ${open ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}
+          ${open ? "max-h-[350px] opacity-100" : "max-h-0 opacity-0"}
         `}
       >
-        <nav className="flex flex-col px-6 py-6 gap-4 text-white">
-          <a href="/" className="text-sm hover:opacity-80 transition">
+        <nav className="flex flex-col px-6 py-6 gap-5 text-white">
+          <Link
+            href="/"
+            className="text-sm hover:opacity-80 transition"
+            onClick={() => setOpen(false)}
+          >
             Home
-          </a>
+          </Link>
           <a
             href="/#portofolio"
             className="text-sm hover:opacity-80 transition"
+            onClick={() => setOpen(false)}
           >
             Portofolio
           </a>
-          <a href="/#services" className="text-sm hover:opacity-80 transition">
+          <a
+            href="/#services"
+            className="text-sm hover:opacity-80 transition"
+            onClick={() => setOpen(false)}
+          >
             Layanan Kami
           </a>
+
+          {/* NEW SOUND SYSTEM LINK (MOBILE) */}
+          <Link
+            href="/sound-system"
+            className="flex items-center gap-2 text-sm font-semibold w-fit"
+            onClick={() => setOpen(false)}
+          >
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 via-pink-400 to-purple-500">
+              Sewa Sound System
+            </span>
+            <span className="bg-linear-to-r from-orange-500 to-pink-500 text-white text-[9px] px-1.5 py-0.5 rounded-full leading-none font-bold uppercase tracking-wider">
+              New
+            </span>
+          </Link>
+
           <a
             href="https://wa.me/6281289194782?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik."
-            className="text-sm hover:opacity-80 transition"
+            className="text-sm hover:opacity-80 transition mt-2"
+            onClick={() => setOpen(false)}
           >
             Hubungi Kami
           </a>
