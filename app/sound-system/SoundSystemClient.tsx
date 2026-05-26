@@ -21,9 +21,9 @@ const packages: Package[] = [
     watt: "1000 WATT",
     capacity: "30-50 orang",
     originalPrice: "1.500.000",
-    promoPrice: "999.000",
+    promoPrice: "990.000",
     image: "/images/sound-system/1000w.png",
-    popular: true, // <-- Pindah ke sini
+    popular: true,
     features: [
       "Speaker Aktif 15 Inch (Huper) - 2 pcs",
       "Mixer 10 Channel - 1 pc",
@@ -55,7 +55,6 @@ const packages: Package[] = [
     originalPrice: "3.000.000",
     promoPrice: "2.500.000",
     image: "/images/sound-system/3000w.png",
-    // popular: true, <-- Dihapus dari sini
     features: [
       "Speaker Aktif 15 Inch (Huper) - 6 pcs",
       "Mixer 16 Channel - 1 pc",
@@ -98,6 +97,18 @@ export default function SoundSystemClient() {
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-pink-500 selection:text-white">
+      {/* INJECT CUSTOM KEYFRAMES FOR SCALING PULSE */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes pulse-scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+          }
+        `,
+        }}
+      />
+
       {/* HERO SECTION */}
       <section className="relative px-6 pt-32 pb-20 sm:px-12 lg:px-24 overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-linear-to-r from-orange-500/40 via-pink-500/40 to-purple-600/40 blur-[120px] opacity-30 pointer-events-none z-0" />
@@ -128,116 +139,147 @@ export default function SoundSystemClient() {
           {packages.map((pkg) => (
             <div
               key={pkg.id}
-              className={`
-                group relative flex flex-col rounded-2xl transition-all duration-500 h-full
-                hover:-translate-y-2
-                ${
-                  pkg.popular
-                    ? "shadow-[0_0_40px_rgba(236,72,153,0.5)]" // Glow kuat di luar kartu
-                    : "hover:shadow-[0_0_40px_rgba(236,72,153,0.15)]"
-                }
-              `}
+              className="h-full"
+              style={
+                pkg.popular
+                  ? { animation: "pulse-scale 2.5s ease-in-out infinite" }
+                  : undefined
+              }
             >
-              {/* ANIMASI PULSING GRADIENT BORDER UNTUK PAKET LARIS */}
-              {pkg.popular && (
-                <div className="absolute inset-0 rounded-2xl bg-linear-to-r from-orange-500 via-pink-500 to-purple-600 animate-[pulse_2s_ease-in-out_infinite]" />
-              )}
-
-              {/* KONTEN KARTU UTAMA */}
               <div
                 className={`
-                  relative h-full flex flex-col rounded-2xl overflow-hidden
+                  group relative flex flex-col rounded-2xl transition-all duration-500 h-full
+                  hover:-translate-y-2
                   ${
                     pkg.popular
-                      ? "m-[3px] bg-[#0a0a0a]" // Margin 3px akan memperlihatkan gradient menyala di bawahnya
-                      : "bg-white/5 border border-white/10 backdrop-blur-xl"
+                      ? "shadow-[0_0_40px_rgba(236,72,153,0.5)]"
+                      : "hover:shadow-[0_0_40px_rgba(236,72,153,0.15)]"
                   }
                 `}
               >
+                {/* GLOWING GRADIENT BORDER */}
                 {pkg.popular && (
-                  <div className="absolute top-4 right-4 z-20 bg-linear-to-r from-orange-500 to-pink-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg pointer-events-none">
-                    Paling Laris
-                  </div>
+                  <div className="absolute -inset-0.5 rounded-2xl bg-linear-to-r from-orange-500 via-pink-500 to-purple-600 animate-[pulse_2s_ease-in-out_infinite]" />
                 )}
 
-                {/* CLICKABLE IMAGE CONTAINER */}
-                <button
-                  onClick={() => setSelectedImage(pkg.image)}
-                  className="relative block w-full aspect-[4/5] overflow-hidden bg-neutral-900 cursor-zoom-in focus:outline-none focus:ring-4 focus:ring-pink-500"
-                  aria-label={`Lihat gambar penuh untuk paket ${pkg.watt}`}
+                {/* MAIN CARD CONTAINER */}
+                <div
+                  className={`
+                    relative h-full flex flex-col rounded-2xl overflow-hidden
+                    ${
+                      pkg.popular
+                        ? "m-[3px] bg-[#0a0a0a]"
+                        : "bg-white/5 border border-white/10 backdrop-blur-xl"
+                    }
+                  `}
                 >
-                  <Image
-                    src={pkg.image}
-                    alt={`Sewa Sound System ${pkg.watt}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    priority={pkg.id === "1000w" || pkg.id === "2000w"}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
-
-                  <div className="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
-                    <h3 className="text-4xl font-bold tracking-tight text-white mb-2">
-                      {pkg.watt}
-                    </h3>
-                    <div className="flex items-center gap-2 text-base text-neutral-300 font-medium">
-                      <Users className="w-5 h-5 text-orange-400" />
-                      Cocok untuk {pkg.capacity}
+                  {/* POPULAR BADGE (Top Right) */}
+                  {pkg.popular && (
+                    <div className="absolute top-4 right-4 z-20 bg-linear-to-r from-orange-500 to-pink-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg pointer-events-none">
+                      Paling Laris
                     </div>
-                  </div>
-                </button>
+                  )}
 
-                {/* CONTENT */}
-                <div className="flex flex-col flex-1 p-8">
-                  {/* PRICE SECTION */}
-                  <div className="mb-8">
-                    <div className="flex items-center gap-3 mb-1">
-                      <p className="text-sm text-neutral-400 font-medium">
-                        Harga Promo
-                      </p>
-                      <span className="text-md text-neutral-500 font-medium line-through decoration-pink-500/70">
-                        Rp {pkg.originalPrice}
-                      </span>
-                    </div>
-
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-2xl font-semibold text-white/90">
-                        Rp
-                      </span>
-                      <span className="text-5xl font-bold tracking-tight text-white">
-                        {pkg.promoPrice}
-                      </span>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-4 mb-10 flex-1">
-                    {pkg.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-3 text-base text-neutral-300"
-                      >
-                        <CheckCircle2 className="w-6 h-6 text-pink-500 shrink-0" />
-                        <span className="leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href={`https://wa.me/6285121368452?text=Halo,%20saya%20ingin%20bertanya%20tentang%20sewa%20Sound%20System%20paket%20${pkg.watt}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      relative w-full inline-flex items-center justify-center rounded-full px-6 py-4 text-base font-bold text-white 
-                      overflow-hidden transition-all focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-black
-                    "
+                  {/* CLICKABLE IMAGE CONTAINER */}
+                  <button
+                    onClick={() => setSelectedImage(pkg.image)}
+                    className="relative block w-full aspect-[4/5] overflow-hidden bg-neutral-900 cursor-zoom-in focus:outline-none focus:ring-4 focus:ring-pink-500"
+                    aria-label={`Lihat gambar penuh untuk paket ${pkg.watt}`}
                   >
-                    <span className="absolute inset-0 bg-linear-to-r from-orange-500 via-pink-500 to-purple-600" />
-                    <span className="absolute inset-0 bg-linear-to-r from-orange-400 via-pink-400 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    <span className="relative z-10 flex items-center gap-2">
-                      <Music className="w-5 h-5" />
-                      Pesan Sekarang
-                    </span>
-                  </a>
+                    <Image
+                      src={pkg.image}
+                      alt={`Sewa Sound System ${pkg.watt}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      priority={pkg.id === "1000w" || pkg.id === "2000w"}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+
+                    <div className="absolute bottom-6 left-6 right-6 text-left pointer-events-none flex flex-col items-start">
+                      <h3 className="text-4xl font-bold tracking-tight text-white mb-2">
+                        {pkg.watt}
+                      </h3>
+                      <div className="flex items-center gap-2 text-base text-neutral-300 font-medium mb-3">
+                        <Users className="w-5 h-5 text-orange-400" />
+                        Cocok untuk {pkg.capacity}
+                      </div>
+
+                      {/* RELOCATED: FREE RECORDING BADGE */}
+                      <div className="z-20 w-fit bg-neutral-900/90 backdrop-blur-md border border-neutral-700 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center gap-2 pointer-events-none transition-transform group-hover:scale-105">
+                        <span className="relative flex h-2.5 w-2.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+                        </span>
+                        FREE rekam audio saat acara
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* CONTENT */}
+                  <div className="flex flex-col flex-1 px-8 pb-6">
+                    {/* PRICE SECTION WITH MIC ADD-ON */}
+                    <div className="mb-8 mt-2">
+                      <div className="flex items-center gap-3 mb-1">
+                        <p className="text-sm text-neutral-400 font-medium">
+                          Harga Promo
+                        </p>
+                        <span className="text-md text-neutral-500 font-medium line-through decoration-pink-500/70">
+                          Rp {pkg.originalPrice}
+                        </span>
+                      </div>
+
+                      <div className="flex items-end justify-between gap-2 flex-wrap">
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-2xl font-semibold text-white/90">
+                            Rp
+                          </span>
+                          <span className="text-5xl font-bold tracking-tight text-white">
+                            {pkg.promoPrice}
+                          </span>
+                        </div>
+
+                        {/* FLOATING TEXT FOR EXTRA MIC */}
+                        <div className="mb-1 text-right">
+                          <span className="inline-block bg-pink-500/10 text-pink-400 text-[13px] font-bold px-2 py-0.5 rounded border border-pink-500/20 mb-0.5">
+                            + Rp. 100.000
+                          </span>
+                          <span className="block text-[13px] text-neutral-400 font-medium">
+                            per wireless mic
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-4 mb-10 flex-1">
+                      {pkg.features.map((feature, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-3 text-base text-neutral-300"
+                        >
+                          <CheckCircle2 className="w-6 h-6 text-pink-500 shrink-0" />
+                          <span className="leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href={`https://wa.me/6285121368452?text=Halo,%20saya%20ingin%20bertanya%20tentang%20sewa%20Sound%20System%20paket%20${pkg.watt}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        relative w-full inline-flex items-center justify-center rounded-full px-6 py-4 text-base font-bold text-white 
+                        overflow-hidden transition-all focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-black
+                      "
+                    >
+                      <span className="absolute inset-0 bg-linear-to-r from-orange-500 via-pink-500 to-purple-600" />
+                      <span className="absolute inset-0 bg-linear-to-r from-orange-400 via-pink-400 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      <span className="relative z-10 flex items-center gap-2">
+                        <Music className="w-5 h-5" />
+                        Pesan Sekarang
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
