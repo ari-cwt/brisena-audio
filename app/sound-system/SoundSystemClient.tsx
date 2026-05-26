@@ -207,7 +207,7 @@ export default function SoundSystemClient() {
                 </ul>
 
                 <a
-                  href={`https://wa.me/6281289194782?text=Halo,%20saya%20ingin%20bertanya%20tentang%20sewa%20Sound%20System%20paket%20${pkg.watt}`}
+                  href={`https://wa.me/6285121368452?text=Halo,%20saya%20ingin%20bertanya%20tentang%20sewa%20Sound%20System%20paket%20${pkg.watt}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="

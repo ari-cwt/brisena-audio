@@ -5,7 +5,6 @@ import ImpactSection from "@/components/ImpactSection";
 import OurServices from "@/components/OurServices";
 import PortfolioSection from "@/components/PortofolioSection";
 // import TrustedBy from "@/components/TrustedBy";
-import { WhatsAppButton } from "@/components/WhatsappButton";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <PortfolioSection />
       {/* <TrustedBy /> */}
       <ContactUs />
-      <WhatsAppButton />
     </div>
   );
 }
