@@ -2,8 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { CheckCircle2, Users, Music, Zap, X } from "lucide-react";
+import {
+  CheckCircle2,
+  Users,
+  Music,
+  Zap,
+  X,
+  ChevronDown,
+  PlayCircle,
+} from "lucide-react";
 
+// --- TYPES ---
 type Package = {
   id: string;
   watt: string;
@@ -15,6 +24,19 @@ type Package = {
   popular?: boolean;
 };
 
+type GalleryItem = {
+  id: string;
+  type: "image" | "video";
+  src: string;
+  orientation: "landscape" | "portrait";
+};
+
+type SelectedMedia = {
+  src: string;
+  type: "image" | "video";
+};
+
+// --- DATA ---
 const packages: Package[] = [
   {
     id: "1000w",
@@ -81,11 +103,90 @@ const packages: Package[] = [
   },
 ];
 
-export default function SoundSystemClient() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+const galleryItems: GalleryItem[] = [
+  {
+    id: "img1",
+    type: "image",
+    src: "/images/sound-system/gallery/1.jpeg",
+    orientation: "portrait",
+  },
+  {
+    id: "img2",
+    type: "image",
+    src: "/images/sound-system/gallery/2.jpeg",
+    orientation: "portrait",
+  },
+  {
+    id: "vid1",
+    type: "video",
+    src: "/videos/sound-system/1.mp4",
+    orientation: "landscape",
+  },
+  {
+    id: "img3",
+    type: "image",
+    src: "/images/sound-system/gallery/3.jpeg",
+    orientation: "portrait",
+  },
+  {
+    id: "img4",
+    type: "image",
+    src: "/images/sound-system/gallery/4.jpeg",
+    orientation: "portrait",
+  },
+  {
+    id: "vid2",
+    type: "video",
+    src: "/videos/sound-system/2.mp4",
+    orientation: "portrait",
+  },
+  {
+    id: "img5",
+    type: "image",
+    src: "/images/sound-system/gallery/5.jpeg",
+    orientation: "landscape",
+  },
+  {
+    id: "img6",
+    type: "image",
+    src: "/images/sound-system/gallery/6.jpeg",
+    orientation: "portrait",
+  },
+  {
+    id: "vid3",
+    type: "video",
+    src: "/videos/sound-system/3.mp4",
+    orientation: "portrait",
+  },
+  {
+    id: "img7",
+    type: "image",
+    src: "/images/sound-system/gallery/7.jpeg",
+    orientation: "portrait",
+  },
+  {
+    id: "img8",
+    type: "image",
+    src: "/images/sound-system/gallery/8.jpeg",
+    orientation: "portrait",
+  },
+  {
+    id: "img9",
+    type: "image",
+    src: "/images/sound-system/gallery/9.jpeg",
+    orientation: "portrait",
+  },
+];
 
+export default function SoundSystemClient() {
+  const [selectedMedia, setSelectedMedia] = useState<SelectedMedia | null>(
+    null,
+  );
+  const [isGalleryOpen, setIsGalleryOpen] = useState(true);
+
+  // Lock body scroll when modal is open
   useEffect(() => {
-    if (selectedImage) {
+    if (selectedMedia) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -93,11 +194,11 @@ export default function SoundSystemClient() {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [selectedImage]);
+  }, [selectedMedia]);
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-pink-500 selection:text-white">
-      {/* INJECT CUSTOM KEYFRAMES FOR SCALING PULSE */}
+    <main className="min-h-screen bg-black text-white selection:bg-pink-500 selection:text-white overflow-x-hidden">
+      {/* INJECT CUSTOM KEYFRAMES */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -105,12 +206,29 @@ export default function SoundSystemClient() {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.02); }
           }
+          
+          /* Seamless Infinite Marquee Math:
+            Translates left by 50% of the total track width.
+            The -0.5rem perfectly offsets the 1rem (gap-4) flex gap to prevent jumping.
+          */
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 0.5rem)); } 
+          }
+          .animate-marquee {
+            animation: marquee 40s linear infinite;
+          }
+          
+          /* Pauses animation when hovering anywhere in the container */
+          .pause-marquee-on-hover:hover .animate-marquee {
+            animation-play-state: paused;
+          }
         `,
         }}
       />
 
       {/* HERO SECTION */}
-      <section className="relative px-6 pt-32 pb-20 sm:px-12 lg:px-24 overflow-hidden">
+      <section className="relative px-6 pt-32 pb-12 sm:px-12 lg:px-24 overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[120%] h-[120%] bg-linear-to-r from-orange-500/40 via-pink-500/40 to-purple-600/40 blur-[120px] opacity-30 pointer-events-none z-0" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
@@ -130,6 +248,83 @@ export default function SoundSystemClient() {
             Pilihan tepat untuk berbagai kebutuhan acara Anda. Harga transparan,
             peralatan berkualitas, dan sudah termasuk operator profesional.
           </p>
+        </div>
+      </section>
+
+      {/* INFINITE GALLERY SECTION */}
+      <section className="relative z-10 px-6 pb-20 max-w-[1600px] mx-auto">
+        <button
+          onClick={() => setIsGalleryOpen(!isGalleryOpen)}
+          className="w-full max-w-sm mx-auto flex items-center justify-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-colors font-medium text-neutral-200"
+        >
+          <span>📸 Lihat Galeri Acara Kami</span>
+          <ChevronDown
+            className={`w-5 h-5 transition-transform duration-300 ${
+              isGalleryOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        <div
+          className={`grid transition-all duration-500 ease-in-out ${
+            isGalleryOpen
+              ? "grid-rows-[1fr] opacity-100 mt-8"
+              : "grid-rows-[0fr] opacity-0 mt-0"
+          }`}
+        >
+          <div className="overflow-hidden">
+            {/* MARQUEE CONTAINER
+              Added pause-marquee-on-hover class so users can easily click media without it running away.
+              Added left/right gradients for a premium fade-in/fade-out look.
+            */}
+            <div className="relative w-full overflow-hidden pause-marquee-on-hover">
+              {/* Fade Edges */}
+              <div className="absolute inset-y-0 left-0 w-8 sm:w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-y-0 right-0 w-8 sm:w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+
+              <div className="flex w-max gap-4 animate-marquee py-4">
+                {/* We render the array twice [...galleryItems, ...galleryItems] to create a seamless infinite loop */}
+                {[...galleryItems, ...galleryItems].map((item, index) => (
+                  <button
+                    key={`${item.id}-${index}`}
+                    aria-hidden={index >= galleryItems.length} // Prevent screen readers from reading duplicates
+                    onClick={() =>
+                      setSelectedMedia({ src: item.src, type: item.type })
+                    }
+                    className={`
+                      relative shrink-0 rounded-xl overflow-hidden bg-neutral-900 border border-white/10 group cursor-pointer focus:outline-none focus:ring-4 focus:ring-pink-500
+                      h-56 sm:h-72 
+                      ${item.orientation === "landscape" ? "aspect-video" : "aspect-[3/4]"}
+                    `}
+                  >
+                    {item.type === "image" ? (
+                      <Image
+                        src={item.src}
+                        alt="Galeri Acara"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 80vw, 400px"
+                      />
+                    ) : (
+                      <>
+                        {/* Video thumbnail trick: Load video but disable controls/autoPlay */}
+                        <video
+                          src={`${item.src}#t=0.1`} // Appending #t=0.1 forces iOS/Safari to load the first frame as a poster
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
+                          preload="metadata"
+                          muted
+                          playsInline
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                          <PlayCircle className="w-12 h-12 text-white/90 drop-shadow-[0_0_15px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-300" />
+                        </div>
+                      </>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -173,7 +368,7 @@ export default function SoundSystemClient() {
                     }
                   `}
                 >
-                  {/* POPULAR BADGE (Top Right) */}
+                  {/* POPULAR BADGE */}
                   {pkg.popular && (
                     <div className="absolute top-4 right-4 z-20 bg-linear-to-r from-orange-500 to-pink-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg pointer-events-none">
                       Paling Laris
@@ -182,7 +377,9 @@ export default function SoundSystemClient() {
 
                   {/* CLICKABLE IMAGE CONTAINER */}
                   <button
-                    onClick={() => setSelectedImage(pkg.image)}
+                    onClick={() =>
+                      setSelectedMedia({ src: pkg.image, type: "image" })
+                    }
                     className="relative block w-full aspect-[4/5] overflow-hidden bg-neutral-900 cursor-zoom-in focus:outline-none focus:ring-4 focus:ring-pink-500"
                     aria-label={`Lihat gambar penuh untuk paket ${pkg.watt}`}
                   >
@@ -205,7 +402,7 @@ export default function SoundSystemClient() {
                         Cocok untuk {pkg.capacity}
                       </div>
 
-                      {/* RELOCATED: FREE RECORDING BADGE */}
+                      {/* FREE RECORDING BADGE */}
                       <div className="z-20 w-fit bg-neutral-900/90 backdrop-blur-md border border-neutral-700 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center gap-2 pointer-events-none transition-transform group-hover:scale-105">
                         <span className="relative flex h-2.5 w-2.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
@@ -287,32 +484,41 @@ export default function SoundSystemClient() {
         </div>
       </section>
 
-      {/* FULLSCREEN IMAGE MODAL */}
-      {selectedImage && (
+      {/* FULLSCREEN MULTI-MEDIA MODAL */}
+      {selectedMedia && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8">
           <div
             className="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-zoom-out"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedMedia(null)}
           />
 
           <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-5xl h-full pointer-events-none">
             <button
-              onClick={() => setSelectedImage(null)}
+              onClick={() => setSelectedMedia(null)}
               className="absolute top-4 right-4 sm:-right-4 sm:top-4 p-2 text-white/70 hover:text-white transition-colors cursor-pointer bg-neutral-800/50 hover:bg-neutral-700/50 rounded-full pointer-events-auto backdrop-blur-md z-20"
-              aria-label="Tutup gambar"
+              aria-label="Tutup media"
             >
               <X className="w-6 h-6 sm:w-8 sm:h-8" />
             </button>
 
-            <div className="relative w-full h-[80vh] sm:h-[90vh] pointer-events-auto">
-              <Image
-                src={selectedImage}
-                alt="Detail Sound System"
-                fill
-                className="object-contain drop-shadow-2xl"
-                sizes="100vw"
-                quality={100}
-              />
+            <div className="relative w-full h-[80vh] sm:h-[90vh] pointer-events-auto flex items-center justify-center">
+              {selectedMedia.type === "image" ? (
+                <Image
+                  src={selectedMedia.src}
+                  alt="Detail Sound System"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  sizes="100vw"
+                  quality={100}
+                />
+              ) : (
+                <video
+                  src={selectedMedia.src}
+                  controls
+                  autoPlay
+                  className="w-full max-h-full object-contain shadow-2xl bg-black rounded-lg"
+                />
+              )}
             </div>
           </div>
         </div>
