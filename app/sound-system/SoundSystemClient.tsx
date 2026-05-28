@@ -466,8 +466,8 @@ export default function SoundSystemClient() {
                         // Fire conversion event
                         if (typeof window !== "undefined" && window.gtag) {
                           window.gtag("event", "conversion", {
-                            send_to: "AW-18193243254/eRebCKzF8bMcEPS9xatC",
-                            value: 0.0,
+                            send_to: "AW-18193243254/agZcCLvDu7QcEPa4m-ND",
+                            value: 1.0,
                             currency: "IDR",
                           });
                         }
