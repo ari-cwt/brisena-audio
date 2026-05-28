@@ -460,13 +460,27 @@ export default function SoundSystemClient() {
                       ))}
                     </ul>
 
-                    <a
-                      href={`https://wa.me/6285121368452?text=Halo,%20saya%20ingin%20bertanya%20tentang%20sewa%20Sound%20System%20paket%20${pkg.watt}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    {/* NEW BUTTON FOR TRACKING */}
+                    <button
+                      onClick={() => {
+                        // Fire conversion event
+                        if (typeof window !== "undefined" && window.gtag) {
+                          window.gtag("event", "conversion", {
+                            send_to: "AW-18193243254/eRebCKzF8bMcEPS9xatC",
+                            value: 0.0,
+                            currency: "IDR",
+                          });
+                        }
+                        // Open WhatsApp
+                        window.open(
+                          `https://wa.me/6285121368452?text=Halo,%20saya%20ingin%20bertanya%20tentang%20sewa%20Sound%20System%20paket%20${pkg.watt}`,
+                          "_blank",
+                          "noopener,noreferrer",
+                        );
+                      }}
                       className="
                         relative w-full inline-flex items-center justify-center rounded-full px-6 py-4 text-base font-bold text-white 
-                        overflow-hidden transition-all focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-black
+                        overflow-hidden transition-all focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-black cursor-pointer
                       "
                     >
                       <span className="absolute inset-0 bg-linear-to-r from-orange-500 via-pink-500 to-purple-600" />
@@ -475,7 +489,7 @@ export default function SoundSystemClient() {
                         <Music className="w-5 h-5" />
                         Pesan Sekarang
                       </span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

@@ -5,13 +5,13 @@ import { FaWhatsapp } from "react-icons/fa6";
 
 export const WhatsAppButton = () => {
   const whatsappUrl =
-    "https://wa.me/6285121368452?text=Halo%2C%20saya%20dari%20website%20Brisena%20Audio%2C%20berminat%20untuk%20membuat%20sebuah%20proyek%20musik.";
+    "https://wa.me/6285121368452?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20Brisena%20Audio%20dan%20ingin%20mendapatkan%20informasi%20lebih%20lanjut.";
 
   const handleClick = () => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", "conversion", {
-        send_to: "AW-17808056052/1XzKCLi869UbEPS9xatC",
-        value: 1.0,
+        send_to: "AW-18193243254/eRebCKzF8bMcEPS9xatC",
+        value: 0.0,
         currency: "IDR",
       });
     }
@@ -39,9 +39,7 @@ export const WhatsAppButton = () => {
         <FaWhatsapp className="w-[65%] h-[65%]" />
       </div>
 
-      <span className="text-[13px] md:text-lg font-semibold">
-        Hubungi Kami
-      </span>
+      <span className="text-[13px] md:text-lg font-semibold">Hubungi Kami</span>
     </Link>
   );
 };
